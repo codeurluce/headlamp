@@ -396,7 +396,12 @@ export const PureTopBar = memo(
       {
         id: DefaultAppBarAction.CLUSTER,
         action: isClusterContext && (
-          <ClusterTitle cluster={cluster} clusters={clusters} onClick={() => handleMenuClose()} />
+          <ClusterTitle
+            cluster={cluster}
+            clusters={clusters}
+            selectedClusters={selectedClusters}
+            onClick={() => handleMenuClose()}
+          />
         ),
       },
       ...appBarActions,
@@ -452,7 +457,12 @@ export const PureTopBar = memo(
         id: DefaultAppBarAction.CLUSTER,
         action: (
           <Box>
-            <ClusterTitle cluster={cluster} clusters={clusters} onClick={handleMobileMenuClose} />
+            <ClusterTitle
+              cluster={cluster}
+              clusters={clusters}
+              selectedClusters={selectedClusters}
+              onClick={handleMobileMenuClose}
+            />
           </Box>
         ),
       },
