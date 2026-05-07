@@ -26,10 +26,10 @@ import { EmptyContent as Empty, Link, Loader, ResourceListView, ShowHideLabel } 
 function CrInstancesView({ crds }: { crds: CRD[]; key: string }) {
   const { t } = useTranslation(['glossary', 'translation']);
 
+  const namespaces = useNamespaces();
   const dataClassCrds = crds.map(crd => {
     const crdClass = crd.makeCRClass();
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const data = crdClass.useList({ cluster: crd.cluster, namespace: useNamespaces() });
+    const data = crdClass.useList({ cluster: crd.cluster, namespace: namespaces });
     return { data, crdClass, crd };
   });
 
